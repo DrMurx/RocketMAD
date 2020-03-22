@@ -2553,6 +2553,8 @@ function initItemFilters() {
 }
 
 function initInvasionFilters() {
+    if (!serverSettings.invasions()) return;
+
     const invasionIds = [41, 42, 43, 44, 5, 4, 6, 7, 10, 11, 12, 13, 49, 50, 14, 15, 16, 17, 18, 19, 20, 21, 47, 48, 22, 23, 24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 28, 29, 38, 39]
 
     let list = ''
