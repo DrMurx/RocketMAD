@@ -12,7 +12,7 @@ EXPOSE 5000
 WORKDIR /usr/src/app
 
 # Set Entrypoint with hard-coded options
-ENTRYPOINT ["dumb-init", "-r", "15:2", "python", "./runserver.py", "--host", "0.0.0.0"]
+ENTRYPOINT ["dumb-init", "-r", "15:2", "newrelic-admin", "run-python", "./runserver.py", "--host", "0.0.0.0"]
 
 
 COPY package.json requirements.txt Gruntfile.js static01.zip /usr/src/app/
@@ -25,6 +25,7 @@ RUN apt-get update \
         build-essential git imagemagick nodejs unzip \
  && pip install --no-cache-dir dumb-init \
  && pip install --no-cache-dir -r requirements.txt \
+ && pip install newrelic \
  && npm install \
  && npm run build \
  && rm -rf node_modules \
